@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inspection — Submit Report</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-6">
+
+  <!-- CARD -->
+  <div class="w-full max-w-3xl bg-white shadow-2xl rounded-2xl p-10">
+
+    <!-- TITLE -->
+    <h2 class="text-3xl font-bold text-gray-900">Inspection — Submit Report</h2>
+    <p class="text-gray-600 text-sm mt-1">Complete required fields and upload photos.</p>
+
+    <form class="mt-8 space-y-6">
+
+      <!-- CLIENT INFO -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="text-sm font-semibold">Client Name</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400" placeholder="John Doe" />
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold">Client Phone</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400" placeholder="+91 98XXXXXXXX" />
+        </div>
+      </div>
+
+      <!-- INSPECTOR -->
+      <div>
+        <label class="text-sm font-semibold">Inspector Name</label>
+        <input type="text" class="w-full mt-1 px-4 py-2 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400" placeholder="Inspector full name" />
+      </div>
+
+      <!-- VEHICLE INFO -->
+      <h3 class="font-semibold text-gray-700 mt-6">Vehicle Information</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div>
+          <label class="text-sm font-semibold">Make</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Model</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Year</label>
+          <input type="number" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl" placeholder="2025">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="text-sm font-semibold">VIN / Chassis</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Plate Number</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div>
+          <label class="text-sm font-semibold">Fuel Type</label>
+          <select class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+            <option>Petrol</option>
+            <option>Diesel</option>
+            <option>Hybrid</option>
+            <option>Electric</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Seating Capacity</label>
+          <input type="number" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl" value="5">
+        </div>
+        <div>
+          <label class="text-sm font-semibold">Color</label>
+          <select class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+            <option>White</option>
+            <option>Black</option>
+            <option>Gray</option>
+            <option>Silver</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="text-sm font-semibold">Test Drive</label>
+          <div class="flex items-center mt-2 space-x-3">
+            <input type="checkbox" class="h-4 w-4">
+            <span class="text-gray-700">Performed</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold">Car Registered (City / State)</label>
+          <input type="text" class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+        </div>
+      </div>
+
+      <div>
+        <label class="text-sm font-semibold">Overall Condition</label>
+        <select class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl">
+          <option>Good</option>
+          <option>Average</option>
+          <option>Excellent</option>
+          <option>Poor</option>
+        </select>
+      </div>
+
+      <!-- REMARKS -->
+      <div>
+        <label class="text-sm font-semibold">Remarks</label>
+        <textarea class="w-full mt-1 px-4 py-2 border bg-gray-50 rounded-xl h-28"></textarea>
+      </div>
+
+      <!-- PHOTO UPLOAD -->
+      <div>
+        <label class="text-sm font-semibold">Photos (up to 20)</label>
+<div class="mb-6">
+  <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-3">
+    <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+    Actions
+  </h3>
+
+  <div class="border-2 border-dashed border-blue-300 bg-blue-50 p-6 rounded-md text-center">
+    <i class="fa fa-cogs text-blue-500 text-2xl mb-2"></i>
+    <p class="text-gray-500 text-sm mb-4">Manage Uploads</p>
+
+    <div class="flex justify-center items-center gap-4 flex-wrap">
+      <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700">
+        Upload Photos
+      </button>
+
+      <button type="button" class="px-4 py-2 bg-red-100 text-red-600 rounded-md text-sm hover:bg-red-200">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>
+
+        <p class="text-xs text-gray-500 mt-2">No photos added yet.</p>
+      </div>
+
+      <!-- SUBMIT -->
+<button type="button" 
+        id="submitReportBtn"
+        class="w-full md:w-auto px-8 py-3 bg-blue-600 text-white font-medium rounded-xl shadow-lg hover:bg-blue-700 transition">
+  Submit Report
+</button>
+
+    </form>
+  </div>
+<script>
+  document.getElementById('submitReportBtn').addEventListener('click', function () {
+    window.location.href = 'inspection-detail-form.html';
+  });
+</script>
+</body>
+</html>

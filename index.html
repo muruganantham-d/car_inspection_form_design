@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>InspectPro — Premium Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .glass { 
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.72)); 
+      backdrop-filter: blur(6px); 
+    }
+    .soft-shadow { box-shadow: 0 10px 30px rgba(2,6,23,0.08); }
+    .hero-title { text-shadow: 0 6px 30px rgba(3, 7, 18, 0.45); }
+  </style>
+</head>
+<body class="antialiased bg-gray-50 text-gray-800">
+
+  <!-- NAVBAR - FULLY FIXED -->
+  <header class="w-full border-b border-gray-100 bg-white/70 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <svg class="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 11l1.4-3.5A2 2 0 0 1 6.2 6h11.6a2 2 0 0 1 1.8 1.5L21 11"></path>
+          <circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+        </svg>
+        <div class="font-bold text-xl">InspectPro</div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <a href="#" class="hover:text-blue-600 transition">Home</a>
+        <a href="#" class="hover:text-blue-600 transition">Inspection Form</a>
+        <a href="#" class="hover:text-blue-600 transition">All Reports (Admin)</a>
+        <button class="rounded-full w-9 h-9 bg-blue-50 flex items-center justify-center hover:bg-blue-100 transition">
+          <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+<!-- MOBILE MENU – FIXED -->
+<div id="inspectproMobileMenuOverlay" class="fixed inset-0 z-[9999] hidden">
+  <!-- BACKDROP -->
+  <div id="inspectproBackdrop" class="absolute inset-0 !bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- WHITE MENU PANEL – SMALLER WIDTH -->
+  <div id="inspectproMobilePanel" class="absolute inset-y-0 right-0 w-full max-w-xs !bg-white shadow-2xl flex flex-col">
+    
+    <!-- HEADER -->
+    <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200 bg-white">
+      <h3 class="text-lg font-bold text-gray-900">Menu</h3>
+      <button id="inspectproCloseMenu" class="p-2 rounded-lg hover:bg-gray-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAV -->
+    <nav class="flex-1 px-4 py-6 space-y-5 text-base font-medium text-gray-800 bg-white">
+
+      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/>
+        </svg>
+        Home
+      </a>
+
+      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Inspection Form
+      </a>
+
+      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+        </svg>
+        All Reports (Admin)
+      </a>
+
+      <div class="pt-6 border-t border-gray-200">
+        <button class="w-full py-3 text-base bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition shadow-md">
+          Logout
+        </button>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+
+  
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="min-h-[calc(100vh-64px)] grid grid-cols-1 lg:grid-cols-2">
+    <!-- LEFT HERO -->
+    <section class="relative h-96 lg:h-auto">
+      <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+           alt="Luxury car" class="absolute inset-0 w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/40"></div>
+     <div class="absolute inset-0 flex items-start justify-center lg:justify-start pt-16 lg:pt-24">
+  <div class="text-center lg:text-left px-8 lg:pl-16">
+    <h1 class="text-4xl lg:text-6xl font-extrabold text-white hero-title leading-tight">
+      Premium Vehicle<br>Inspection System
+    </h1>
+    <p class="mt-6 text-white/90 text-lg max-w-md mx-auto lg:mx-0">
+      Professional digital inspections for modern workshops.
+    </p>
+  </div>
+</div>
+
+    </section>
+
+    <!-- RIGHT AUTH FORM -->
+    <section class="flex items-center justify-center p-8 lg:p-20 bg-gray-50">
+      <div class="w-full max-w-md">
+        <div class="flex items-center gap-2 bg-gray-100 rounded-xl p-1 mb-6">
+          <button id="tabSignIn" class="w-1/2 py-2 rounded-lg text-sm font-medium text-gray-600 transition">Sign In</button>
+          <button id="tabSignUp" class="w-1/2 py-2 rounded-lg text-sm font-medium bg-white shadow-sm transition">Sign Up</button>
+        </div>
+
+        <div class="glass rounded-2xl p-8 soft-shadow border border-gray-100">
+          <h3 id="formTitle" class="text-2xl font-semibold text-gray-900 mb-6">Create an account</h3>
+
+          <form id="authForm" novalidate>
+            <div id="nameGroup" class="mb-5">
+              <div class="relative">
+                <span class="absolute left-3 top-3.5 text-gray-400">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/>
+                  </svg>
+                </span>
+                <input id="name" type="text" placeholder="Full name" class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+              </div>
+              <p id="nameErr" class="text-sm text-red-500 mt-1 hidden"></p>
+            </div>
+
+            <div class="mb-5">
+              <div class="relative">
+                <span class="absolute left-3 top-3.5 text-gray-400">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 8l9 6 9-6"/>
+                  </svg>
+                </span>
+                <input id="email" type="email" placeholder="Email address" class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+              </div>
+              <p id="emailErr" class="text-sm text-red-500 mt-1 hidden"></p>
+            </div>
+
+            <div class="mb-6">
+              <div class="relative">
+                <span class="absolute left-3 top-3.5 text-gray-400">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </span>
+                <input id="password" type="password" placeholder="Choose a password" class="w-full pl-11 pr-12 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+                <button type="button" id="togglePass" class="absolute right-3 top-3.5 text-gray-500 hover:text-gray-700">
+                  <svg id="eyeOpen" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <svg id="eyeClosed" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M17.94 17.94A10 10 0 0 1 6.06 6.06"/><path d="M1 1l22 22"/>
+                  </svg>
+                </button>
+              </div>
+              <p id="passErr" class="text-sm text-red-500 mt-1 hidden"></p>
+            </div>
+
+            <button id="submitBtn" type="submit" class="w-full py-3.5 rounded-xl text-white font-semibold text-base transition hover:scale-[1.02]" 
+                    style="background: linear-gradient(90deg, #0A84FF, #3AB0FF);">
+              Create Account
+            </button>
+
+            <p class="text-xs text-gray-500 text-center mt-4">
+              By creating an account you agree to our
+              <a href="#" class="text-blue-600 underline hover:no-underline">terms</a> and 
+              <a href="#" class="text-blue-600 underline hover:no-underline">privacy policy</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100">
+    © <span id="year"></span> InspectPro — Premium Vehicle Inspection System. All rights reserved.
+  </footer>
+
+<script>
+  // Only care about the two tabs and the submit button
+  const tabSignIn = document.getElementById('tabSignIn');
+  const tabSignUp = document.getElementById('tabSignUp');
+  const nameGroup = document.getElementById('nameGroup');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Switch to Sign In mode
+  function goToSignIn() {
+    tabSignIn.classList.add('bg-white', 'shadow-sm');
+    tabSignUp.classList.remove('bg-white', 'shadow-sm');
+    nameGroup.style.display = 'none';
+    submitBtn.textContent = 'Sign In';
+  }
+
+  tabSignIn.onclick = () => goToSignIn();
+  tabSignUp.onclick = () => { /* you can leave Sign Up as is */ };
+
+  // Instant redirect on Sign In click — no validation, no nothing
+  submitBtn.onclick = (e) => {
+    if (nameGroup.style.display === 'none') {  // means we are in Sign In mode
+      e.preventDefault();
+window.location.href = "inspection-form.html";
+    }
+  };
+
+  // Start in Sign In mode
+  goToSignIn();
+</script>
+
+</body>
+</html>

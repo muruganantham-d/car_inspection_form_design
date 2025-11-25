@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Detail Multi-Step</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="bg-blue-50 p-6">
+
+    <!-- Step 1 -->
+    <!-- Step 1 -->
+    <div id="step1" class="step max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+
+        <p class="text-sm text-gray-500 mb-4">Step 1 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-6">
+            <i class="fa fa-circle-o text-blue-500 mr-3 text-3xl"></i>
+            Tyres & Wheels
+        </h2>
+
+        <!-- Tread -->
+        <div class="mb-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-3">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Tread Depth (in)
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <input type="text" placeholder="Front Left (FL)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Front Right (FR)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Rear Left (RL)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Rear Right (RR)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Pressure -->
+        <div class="mb-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-3">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Tyre Pressure (PSI)
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <input type="text" placeholder="FL Pressure"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="FR Pressure"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="RL Pressure"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="RR Pressure"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Additional -->
+        <div class="mb-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-3">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Additional Tyre Info
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Spare Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Tyre Age/Month/Year"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Upload -->
+        <!-- Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Brake Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <div class="flex justify-end">
+            <button onclick="showStep(2)" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700">
+                Next >
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- Step 2 -->
+    <!-- Step 2 -->
+    <div id="step2" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg hidden">
+
+        <p class="text-sm text-gray-500 mb-3">Step 2 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-wrench text-blue-600 mr-3 text-3xl"></i>
+            Brakes Inspection
+        </h2>
+
+        <!-- Brake Pad Wear -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Brake Pad Wear (%)
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <input type="text" placeholder="Front Left (FL) Pad %"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Front Right (FR) Pad %"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Rear Left (RL) Pad %"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Rear Right (RR) Pad %"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Disc Condition -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Disc Condition
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <input type="text" placeholder="FL Disc Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="FR Disc Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="RL Disc Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="RR Disc Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Brake Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(1)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(3)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step3" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg hidden">
+
+        <p class="text-sm text-gray-500 mb-3">Step 3 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-cogs text-blue-600 mr-3 text-3xl"></i>
+            Engine & Transmission
+        </h2>
+
+        <!-- Engine Health -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Engine Health
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Engine Noise"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Engine Vibration"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Exhaust Smoke"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Belt Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Engine Mounts Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2">
+            </div>
+        </div>
+
+        <!-- Fluids & Leak Check -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Fluids & Leak Check
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+                <input type="text" placeholder="Engine Oil Level"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Engine Oil Leak</option>
+                    <option>No Leak</option>
+                    <option>Minor Leak</option>
+                    <option>Major Leak</option>
+                </select>
+
+                <input type="text" placeholder="Coolant Level"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Coolant Leak</option>
+                    <option>No Leak</option>
+                    <option>Minor Leak</option>
+                    <option>Major Leak</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Battery & Transmission -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Battery & Transmission
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Battery Status"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Battery Voltage"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Transmission Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2">
+            </div>
+        </div>
+
+        <!-- Engine Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Engine Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(2)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(4)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div id="step4" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 4 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-car text-blue-600 mr-3 text-3xl"></i>
+            Exterior Inspection
+        </h2>
+
+        <!-- Bumpers -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Bumpers
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Front Bumper"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Rear Bumper"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+        </div>
+
+        <!-- Fenders -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Fenders
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Left Fender"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Right Fender"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+        </div>
+
+        <!-- Doors -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Doors
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Left Front Door"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Right Front Door"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Left Rear Door"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Right Rear Door"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+        </div>
+
+        <!-- Panels & Body -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Panels & Body
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <input type="text" placeholder="Bonnet"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Roof"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Trunk"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Paint Consistency"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none col-span-3">
+
+                <input type="text" placeholder="Windshield Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none col-span-3">
+            </div>
+        </div>
+
+        <!-- Exterior Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Exterior Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(3)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(5)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 5 -->
+    <div id="step5" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 5 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-home text-blue-600 mr-3 text-3xl"></i>
+            Interior Inspection
+        </h2>
+
+        <!-- Seats Condition -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Seats Condition
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Front Seats Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Rear Seats Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
+
+        <!-- Dashboard & Controls -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Dashboard & Controls
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <input type="text" placeholder="Dashboard Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Steering Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Gear Shift Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Odometer Working</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Intermittent</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!-- AC System -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                AC System
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <input type="text" placeholder="AC Cooling"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="AC Airflow"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Roofliner Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Interior Odour"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+            </div>
+        </div>
+
+        <!-- Interior Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Interior Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(4)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(6)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 6 -->
+    <div id="step6" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 6 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-bolt text-blue-600 mr-3 text-3xl"></i>
+            Electrical & Lights
+        </h2>
+
+        <!-- Lights & Signals -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Lights & Signals
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Headlights Status</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>Dim / Weak</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Tail Lights Status</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>Dim / Weak</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Indicators Status</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>One Side Not Working</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Wipers Status</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>Poor Performance</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!-- Controls & Alerts -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Controls & Alerts
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Horn Status</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>Weak Sound</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Power Windows Status</option>
+                    <option>All Working</option>
+                    <option>One Not Working</option>
+                    <option>Multiple Faults</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Central Locking</option>
+                    <option>Working</option>
+                    <option>Not Working</option>
+                    <option>Intermittent</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Infotainment Status</option>
+                    <option>Working</option>
+                    <option>No Display</option>
+                    <option>No Sound</option>
+                    <option>Touch Not Working</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!-- Electrical Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Electrical Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(5)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(7)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 7 -->
+    <div id="step7" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 7 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-truck text-blue-600 mr-3 text-3xl"></i>
+            Suspension & Underbody
+        </h2>
+
+        <!-- Suspension Noise -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Suspension Noise
+            </h3>
+
+            <input type="text" placeholder="Suspension Noise"
+                class="w-full p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+
+        <!-- Shock Absorbers -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Shock Absorbers
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Shock Absorber Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <input type="text" placeholder="Bush Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+        </div>
+
+        <!-- Chassis & Underbody -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Chassis & Underbody
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Chassis Rust"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Oil Leak Underbody</option>
+                    <option>No Leak</option>
+                    <option>Minor Leak</option>
+                    <option>Major Leak</option>
+                </select>
+
+                <input type="text" placeholder="Exhaust Condition"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none col-span-2">
+            </div>
+        </div>
+
+        <!-- Underbody Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Underbody Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(6)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(8)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 8 -->
+    <div id="step8" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 8 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-tint text-blue-600 mr-3 text-3xl"></i>
+            Fluids & Maintenance
+        </h2>
+
+        <!-- Fluid Levels -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Fluid Levels
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <input type="text" placeholder="Brake Fluid Level"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Transmission Fluid Level"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Power Steering Fluid"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Windshield Washer Fluid"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <input type="text" placeholder="Coolant Type"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2">
+
+            </div>
+        </div>
+
+        <!-- Maintenance Details -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Maintenance Details
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <input type="text" placeholder="Last Oil Change (KM)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Service Book Present</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <input type="date"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2">
+            </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="mb-10 border-2 border-dashed border-blue-300 bg-blue-50 p-8 rounded-xl">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-camera text-blue-600 mr-2 text-xl"></i>
+                Fluids & Maintenance Photos
+            </h3>
+
+            <div class="text-center py-6">
+                <i class="fa fa-upload text-blue-600 text-3xl mb-2"></i>
+                <p class="text-gray-600 mb-3">Upload</p>
+
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                    Select Photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(7)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(9)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 9 -->
+    <div id="step9" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 9 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-shield text-blue-600 mr-3 text-3xl"></i>
+            Safety Systems & Legal Status
+        </h2>
+
+        <!-- Safety Systems -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Safety Systems
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Airbag Status</option>
+                    <option>OK</option>
+                    <option>Faulty</option>
+                    <option>Not Available</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Seatbelt Condition</option>
+                    <option>Good</option>
+                    <option>Damaged</option>
+                    <option>Not Working</option>
+                </select>
+
+                <input type="text" placeholder="Emission Test (e.g., Passed / Failed / NA)"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none col-span-2">
+
+            </div>
+        </div>
+
+        <!-- Legal Validity -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-circle-o text-blue-500 mr-2 text-xl"></i>
+                Legal Validity
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Registration Valid</option>
+                    <option>Valid</option>
+                    <option>Expired</option>
+                </select>
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Insurance Valid</option>
+                    <option>Valid</option>
+                    <option>Expired</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+            <button onclick="showStep(8)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button onclick="showStep(10)" class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                Next →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Step 10 -->
+    <div id="step10" class="step hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <p class="text-sm text-gray-500 mb-3">Step 10 of 10</p>
+
+        <h2 class="flex items-center text-2xl font-bold text-gray-800 mb-8">
+            <i class="fa fa-file-text text-blue-600 mr-3 text-3xl"></i>
+            Final Notes & Verification
+        </h2>
+
+        <!-- Inspection Notes -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-sticky-note text-blue-500 mr-2 text-xl"></i>
+                Inspection Notes
+            </h3>
+
+            <div class="grid grid-cols-1 gap-4">
+
+                <textarea placeholder="Roadworthy Notes" rows="3"
+                    class="p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+
+                <textarea placeholder="Previous Accident Notes" rows="3"
+                    class="p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+
+                <textarea placeholder="Additional Notes" rows="3"
+                    class="p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+            </div>
+        </div>
+
+        <!-- Verification -->
+        <div class="mb-10 border border-gray-200 rounded-xl p-6">
+
+            <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-4">
+                <i class="fa fa-check-circle text-blue-500 mr-2 text-xl"></i>
+                Verification
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <select
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Odometer Verified?</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <input type="text" placeholder="Inspector reference or owner remarks"
+                    class="p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-8">
+
+            <button onclick="showStep(9)" class="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                ← Back
+            </button>
+
+            <button
+              type="button" 
+              id="submitReportBtn"
+              class="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+                 Submit Inspection ✔
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Reusable Input Style -->
+    <style>
+        .input {
+            @apply p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500;
+        }
+    </style>
+
+    <!-- JS Step Logic -->
+    <script>
+        function showStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll(".step").forEach(div => {
+                div.classList.add("hidden");
+            });
+
+            // Show selected step
+            document.getElementById("step" + stepNumber).classList.remove("hidden");
+        }
+
+          document.getElementById('submitReportBtn').addEventListener('click', function () {
+    window.location.href = 'report.html';
+  });
+
+
+    </script>
+
+
+</body>
+
+</html>

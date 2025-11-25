@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inspection Report — Premium (Static)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* visual helpers to mimic the React styling */
+    .card { @apply bg-white rounded-2xl shadow-md border border-gray-100; }
+    .btn-blue { @apply inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-xl shadow; }
+    .thumb { transition: transform .12s; }
+    .thumb:hover { transform: translateY(-4px); }
+    /* small fix for PDF-as-image placeholder: ensure object-fit fallback */
+    img.object-cover-fallback { object-fit: cover; }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-[#f7fbff] to-[#f3f7ff] min-h-screen p-6">
+
+  <main class="max-w-6xl mx-auto">
+
+    <!-- TOP -->
+    <div class="mb-10 flex items-start justify-between gap-6">
+      <div>
+        <div class="text-xs uppercase tracking-widest text-gray-400 font-semibold">Inspection Report</div>
+        <h1 class="text-4xl font-bold text-gray-900 flex items-center gap-3 mt-2">
+          <span class="bg-blue-600/10 text-blue-700 p-2 rounded-lg">
+            <i class="fa fa-camera" style="font-size:18px"></i>
+          </span>
+          2025 — TATA AK5
+        </h1>
+        <div class="mt-2 text-sm text-gray-500">
+          Reference ID: <span class="ml-2 px-2 py-0.5 rounded-lg bg-gray-100 text-gray-800 font-medium">4</span>
+          &nbsp;&nbsp; • &nbsp;&nbsp; Inspector: <span class="font-medium ml-1">Siva</span>
+        </div>
+      </div>
+
+<!-- RIGHT -->
+<div class="flex items-center gap-4">
+
+  <!-- Download Button (Premium) -->
+  <button onclick="window.print()"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-xl 
+                 bg-gradient-to-r from-blue-600 to-blue-500 
+                 text-white text-sm font-semibold shadow-md 
+                 hover:shadow-lg hover:scale-[1.02] active:scale-95 
+                 transition-all">
+    <i class="fa fa-download text-white"></i>
+    Download PDF
+  </button>
+
+  <!-- Inspector Card -->
+  <div class="px-4 py-2 rounded-xl border border-gray-200 bg-white shadow-sm">
+    <div class="text-[10px] tracking-wide text-gray-400 uppercase">Inspector</div>
+    <div class="text-sm font-semibold text-gray-800">Siva</div>
+  </div>
+</div>
+
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- LEFT: Gallery + main content (col-span 8) -->
+      <section class="lg:col-span-8 space-y-6">
+
+        <!-- Gallery card (hero + thumbs) -->
+        <div class="card overflow-hidden">
+          <div class="relative bg-gray-50">
+            <!-- HERO IMAGE (local uploaded file path used as src) -->
+            <div class="relative h-[520px] bg-black/5">
+<img id="mainImage" src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg"
+
+                   alt="hero" class="w-full h-full object-cover object-center object-cover-fallback" />
+
+              <!-- arrows -->
+              <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-3 bg-white/90 shadow-md">
+                <i class="fa fa-chevron-left text-gray-600"></i>
+              </button>
+              <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-3 bg-white/90 shadow-md">
+                <i class="fa fa-chevron-right text-gray-600"></i>
+              </button>
+
+              <!-- hero label -->
+              <div class="absolute left-6 bottom-6 p-3 rounded-lg bg-white/90 shadow backdrop-blur-sm">
+                <div class="text-sm text-gray-500">Primary</div>
+                <div class="font-semibold text-gray-900">TATA • AK5</div>
+              </div>
+            </div>
+
+            <!-- thumbnails -->
+            <div class="p-4 bg-white flex gap-3 overflow-x-auto">
+              <button class="thumb w-28 h-20 rounded-lg overflow-hidden flex-shrink-0 border" data-full="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg">
+                <img src="https://images.pexels.com/photos/112462/pexels-photo-112462.jpeg" alt="t1" class="w-full h-full object-cover" />
+              </button>
+
+              <!-- car-only sample images (replace with your own if needed) -->
+              <button class="thumb w-28 h-20 rounded-lg overflow-hidden flex-shrink-0 border" data-full="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg">
+                <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" alt="t2" class="w-full h-full object-cover" />
+              </button>
+
+              <button class="thumb w-28 h-20 rounded-lg overflow-hidden flex-shrink-0 border" data-full="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg">
+                <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg" alt="t3" class="w-full h-full object-cover" />
+              </button>
+
+              <button class="thumb w-28 h-20 rounded-lg overflow-hidden flex-shrink-0 border" data-full="https://images.pexels.com/photos/112462/pexels-photo-112462.jpeg">
+                <img src="https://images.pexels.com/photos/112462/pexels-photo-112462.jpeg" alt="t4" class="w-full h-full object-cover" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score + summary -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <i class="fa fa-star text-yellow-400 text-2xl"></i>
+              <div>
+                <div class="text-sm text-gray-500">Overall Score</div>
+                <div class="text-2xl font-bold text-gray-900">82 / 100</div>
+              </div>
+            </div>
+
+            <div class="flex-1 ml-6">
+              <div class="w-full h-3 rounded-full bg-gray-100 overflow-hidden">
+                <div class="h-full bg-blue-600" style="width:82%"></div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-sm text-gray-500 mt-4">Summary: Vehicle in excellent running condition. Visual inspection showed minor tyre wear; engine and fluids okay.</p>
+        </div>
+
+        <!-- small two-column cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="card p-4">
+            <div class="text-sm text-gray-500 mb-3">Condition & pressure</div>
+            <div class="space-y-2 text-sm text-gray-700">
+              <div class="flex justify-between"><span>Front Left Tread</span><span class="font-medium">7.5 mm</span></div>
+              <div class="flex justify-between"><span>Front Right Tread</span><span class="font-medium">7.0 mm</span></div>
+            </div>
+          </div>
+
+          <div class="card p-4">
+            <div class="text-sm text-gray-500 mb-3">Visual check</div>
+            <div class="space-y-2 text-sm text-gray-700">
+              <div class="flex justify-between"><span>Oil Leak</span><span class="font-medium">No</span></div>
+              <div class="flex justify-between"><span>Noise</span><span class="font-medium">Normal</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full details accordions -->
+        <div class="mt-4">
+          <div class="text-sm text-gray-500 mb-2">Full Inspection Details</div>
+
+          <!-- Tyres accordion -->
+          <div class="card p-2 mb-3">
+            <button data-acc="tyres" class="w-full text-left px-4 py-3 flex justify-between items-center">
+              <span class="font-semibold">Tyres</span>
+              <i class="fa fa-plus text-gray-500"></i>
+            </button>
+            <div id="acc-tyres" class="px-4 pb-4 hidden text-sm text-gray-700">
+              <ul class="mt-3 space-y-2">
+                <li class="flex justify-between"><span>tyre fl tread pct</span><span>7.5 mm</span></li>
+                <li class="flex justify-between"><span>tyre fr tread pct</span><span>7.0 mm</span></li>
+                <li class="flex justify-between"><span>tyre rl tread pct</span><span>6.8 mm</span></li>
+                <li class="flex justify-between"><span>tyre rr tread pct</span><span>6.5 mm</span></li>
+                <li class="flex justify-between"><span>tyre fl pressure psi</span><span>33</span></li>
+                <li class="flex justify-between"><span>tyre fr pressure psi</span><span>33</span></li>
+                <li class="flex justify-between"><span>tyre rl pressure psi</span><span>35</span></li>
+                <li class="flex justify-between"><span>tyre rr pressure psi</span><span>35</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Brakes accordion -->
+          <div class="card p-2 mb-3">
+            <button data-acc="brakes" class="w-full text-left px-4 py-3 flex justify-between items-center">
+              <span class="font-semibold">Brakes</span>
+              <i class="fa fa-plus text-gray-500"></i>
+            </button>
+            <div id="acc-brakes" class="px-4 pb-4 hidden text-sm text-gray-700">
+              <ul class="mt-3 space-y-2">
+                <li class="flex justify-between"><span>FL Pad Wear</span><span>20%</span></li>
+                <li class="flex justify-between"><span>FR Pad Wear</span><span>25%</span></li>
+                <li class="flex justify-between"><span>RL Pad Wear</span><span>30%</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Engine accordion -->
+          <div class="card p-2">
+            <button data-acc="engine" class="w-full text-left px-4 py-3 flex justify-between items-center">
+              <span class="font-semibold">Engine</span>
+              <i class="fa fa-plus text-gray-500"></i>
+            </button>
+            <div id="acc-engine" class="px-4 pb-4 hidden text-sm text-gray-700">
+              <ul class="mt-3 space-y-2">
+                <li class="flex justify-between"><span>Oil Condition</span><span>Good</span></li>
+                <li class="flex justify-between"><span>Coolant Level</span><span>OK</span></li>
+                <li class="flex justify-between"><span>Noise</span><span>Normal</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: sticky summary + vehicle info (col-span 4) -->
+      <aside class="lg:col-span-4">
+        <div class="sticky top-8 space-y-4">
+
+          <div class="card p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <div class="text-sm text-gray-500">Quick Summary</div>
+                <div class="text-lg font-semibold text-gray-900">Condition Snapshot</div>
+              </div>
+              <div class="text-sm text-gray-500">Score</div>
+            </div>
+
+            <div class="grid gap-3">
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-gray-600">Exterior</div>
+                <div><span class="inline-flex px-2 py-1 text-xs font-semibold bg-gray-100 rounded">Good</span></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-gray-600">Interior</div>
+                <div><span class="inline-flex px-2 py-1 text-xs font-semibold bg-gray-100 rounded">Excellent</span></div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-gray-600">Brake / Tyres</div>
+                <div><span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-50 text-yellow-700 rounded">Average</span></div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="w-full py-2 rounded-lg text-white font-semibold" style="background: linear-gradient(90deg,#0A84FF,#3AB0FF)">
+                Export Report
+              </button>
+            </div>
+          </div>
+
+          <div class="card p-6">
+            <div class="text-sm text-gray-500">Vehicle Info</div>
+            <div class="mt-3 grid grid-cols-2 gap-2 text-sm text-gray-700">
+              <div>
+                <div class="text-xs text-gray-400">Make</div>
+                <div class="font-medium">TATA</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">Model</div>
+                <div class="font-medium">AK5</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">Year</div>
+                <div class="font-medium">2025</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">Mileage</div>
+                <div class="font-medium">546 km</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">Fuel</div>
+                <div class="font-medium">Diesel</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-400">Plate</div>
+                <div class="font-medium">KA-09-4569</div>
+              </div>
+              <div class="col-span-2">
+                <div class="text-xs text-gray-400">Client</div>
+                <div class="font-medium">Murugan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-4 text-sm text-gray-500">
+            <div class="font-semibold text-gray-800 mb-2">Disclaimer</div>
+            Visual inspection only. Limited to accessible areas at time of inspection.
+          </div>
+
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-6">
+    <div class="max-w-4xl w-full bg-white rounded-lg overflow-hidden">
+      <div class="p-4 border-b flex items-center justify-between">
+        <div class="font-semibold">Photos</div>
+        <button id="lightboxClose" class="px-3 py-1 rounded bg-gray-100">Close</button>
+      </div>
+      <div class="p-6 bg-black flex items-center justify-center">
+        <img id="lightboxImage" src="" alt="lightbox" class="w-full object-contain max-h-[70vh]" />
+      </div>
+      <div class="p-4 bg-gray-50 overflow-x-auto">
+        <div class="flex gap-2" id="lightboxThumbs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS: thumbnails, hero nav, accordion, lightbox -->
+  <script>
+    (function () {
+      const thumbButtons = Array.from(document.querySelectorAll('.thumb'));
+      const mainImage = document.getElementById('mainImage');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // build thumbs array of full URLs (from data-full or src)
+      const thumbs = thumbButtons.map(btn => btn.getAttribute('data-full') || btn.querySelector('img').src);
+
+      let idx = 0;
+      function setMain(i) {
+        idx = (i + thumbs.length) % thumbs.length;
+        mainImage.src = thumbs[idx];
+      }
+
+      thumbButtons.forEach((btn, i) => {
+        btn.addEventListener('click', () => setMain(i));
+      });
+
+      prevBtn.addEventListener('click', () => setMain(idx - 1));
+      nextBtn.addEventListener('click', () => setMain(idx + 1));
+
+      // accordions
+      document.querySelectorAll('[data-acc]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-acc');
+          const panel = document.getElementById('acc-' + key);
+          const icon = btn.querySelector('i');
+          const open = !panel.classList.contains('hidden');
+          // close all
+          document.querySelectorAll('[id^=acc-]').forEach(p => p.classList.add('hidden'));
+          document.querySelectorAll('[data-acc] i').forEach(i => { i.classList.remove('fa-minus'); i.classList.add('fa-plus'); });
+          if (!open) {
+            panel.classList.remove('hidden');
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxThumbs = document.getElementById('lightboxThumbs');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      // prepare lightbox thumbs
+      function openLightbox(startIndex) {
+        lightbox.classList.remove('hidden');
+        setMain(startIndex);
+        // set big image
+        lightboxImage.src = thumbs[startIndex];
+        // populate small thumbs
+        lightboxThumbs.innerHTML = thumbs.map((t, i) => 
+          '<button class="w-24 h-24 rounded overflow-hidden border-4 '+(i===startIndex?'border-blue-500':'border-white')+'" data-i="'+i+'"><img src="'+t+'" class="w-full h-full object-cover"/></button>'
+        ).join('');
+        // attach click
+        lightboxThumbs.querySelectorAll('button').forEach(b => {
+          b.addEventListener('click', () => {
+            const i = Number(b.getAttribute('data-i'));
+            lightboxImage.src = thumbs[i];
+          });
+        });
+      }
+
+      // open lightbox from any thumb click (double behavior)
+      thumbButtons.forEach((btn, i) => {
+        btn.addEventListener('dblclick', () => openLightbox(i));
+      });
+
+      // also open from hero with dblclick
+      mainImage.addEventListener('dblclick', () => openLightbox(idx));
+
+      lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.add('hidden'); });
+
+      // init
+      setMain(0);
+    })();
+  </script>
+</body>
+</html>
