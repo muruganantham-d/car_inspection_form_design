@@ -223,16 +223,27 @@ function renderSections() {
 
   lucide.createIcons();
 
-  // Fixed Bottom Button (perfect for narrow screens)
+  // Bottom Fixed Navigation - Back + Next (Perfect for Mobile)
   const nav = document.createElement('div');
-  nav.className = "fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-xl";
+  nav.className = "fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-2xl z-10";
+
   nav.innerHTML = `
-    <button onclick="goToStep(3)" 
-            class="w-full bg-green-600 text-white font-semibold text-lg py-4 rounded-xl active:scale-95 transition shadow-lg flex items-center justify-center gap-2">
-      Next →
-    </button>
+    <div class="flex gap-3 max-w-2xl mx-auto">
+      <button onclick="goToStep(1)" 
+              class="flex-1 px-6 py-3.5 bg-gray-200 text-gray-800 rounded-xl font-medium text-base active:scale-95 transition">
+        Back
+      </button>
+      <button onclick="goToStep(3)" 
+              class="flex-1 px-8 py-3.5 bg-green-600 text-white rounded-xl font-bold text-base shadow-lg active:scale-95 transition flex items-center justify-center gap-2">
+        Next →
+      </button>
+    </div>
   `;
+
   container.appendChild(nav);
+
+  // Add bottom padding so content isn't hidden behind fixed bar
+  container.style.paddingBottom = "100px";
 }
   // Rest of your functions remain the same
   function setSectionStatus(i, status) {
