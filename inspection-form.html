@@ -23,16 +23,16 @@
 <div class="max-w-4xl mx-auto">
 
   <!-- Progress Bar -->
-  <div class="mb-6">
-    <div class="flex items-center justify-between text-xs text-gray-600 mb-2">
-      <span id="step1-label" class="flex-1 text-center font-semibold">1. Vehicle</span>
-      <span id="step2-label" class="flex-1 text-center">2. Inspection</span>
-      <span id="step3-label" class="flex-1 text-center">3. Photos & Submit</span>
-    </div>
-    <div class="h-2 bg-gray-300 rounded-full overflow-hidden">
-      <div id="progress-bar" class="h-full bg-green-600 transition-all duration-300" style="width: 33%;"></div>
-    </div>
+<div class="mb-8">
+  <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+    <span id="step1-label" class="font-medium">1. Vehicle</span>
+    <span id="step2-label" class="font-medium">2. Inspection</span>
+    <span id="step3-label" class="font-medium">3. Photos & Submit</span>
   </div>
+  <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+    <div id="progress-bar" class="h-full bg-green-600 transition-all duration-500 ease-out" style="width: 33%;"></div>
+  </div>
+</div>
 
 
   <!-- Step 1: Vehicle Info -->
@@ -75,28 +75,53 @@
   </div>
 
   <!-- Step 3: Photos & Submit -->
-  <div id="step3" class="hidden bg-white/90 shadow-lg rounded-xl p-6">
-    <h2 class="text-xl font-semibold mb-4">Photos & Submit</h2>
+<!-- Step 3: Photos & Submit -->
+<div id="step3" class="hidden">
 
-    <label class="inline-flex items-center gap-2 cursor-pointer px-6 py-3 border rounded-lg shadow bg-white hover:bg-gray-50">
-      <i data-lucide="camera"></i>
-      <span>Add Photos</span>
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Title -->
+    <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Photos & Submit</h2>
+
+    <!-- Add Photos Button - Big & Beautiful -->
+    <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-all active:scale-98">
+      <i data-lucide="camera" class="w-10 h-10 text-gray-500 mb-2"></i>
+      <span class="text-lg font-medium text-gray-700">Add Photos</span>
       <input type="file" accept="image/*" multiple onchange="handlePhotos(this.files)" class="hidden"/>
     </label>
 
-    <div id="photo-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
-    <p id="no-photos" class="text-sm text-gray-500 mt-4">No photos added yet.</p>
+    <!-- Photo Grid -->
+    <div id="photo-grid" class="grid grid-cols-2 gap-4 mt-8"></div>
 
-    <div class="flex justify-between mt-8">
-      <button onclick="goToStep(2)" class="px-6 py-3 bg-gray-300 rounded-lg">Back</button>
-      <div class="flex gap-3">
-        <button onclick="clearPhotos()" class="px-5 py-3 border rounded-lg">Clear</button>
-        <!-- <button onclick="submitReport()" id="submit-btn" class="px-8 py-3 bg-green-600 text-white rounded-lg">Submit Report</button> -->
-        <button id="submitReportBtn" class="px-8 py-3 bg-green-600 text-white rounded-lg">Submit Report</button>
+    <!-- No photos message -->
+    <p id="no-photos" class="text-center text-gray-500 mt-6 text-lg">No photos added yet.</p>
+
+    <!-- Bottom Action Buttons (Mobile-First Layout) -->
+    <div class="mt-12 pb-8">
+      <div class="grid grid-cols-2 gap-4 sm:flex sm:justify-center sm:gap-6">
+        <button onclick="goToStep(2)" 
+                class="px-8 py-4 bg-gray-200 text-gray-800 rounded-xl font-medium text-lg hover:bg-gray-300 transition active:scale-95 order-3 sm:order-none">
+          Back
+        </button>
+
+        <button onclick="clearPhotos()" 
+                class="px-8 py-4 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-medium text-lg hover:bg-gray-50 transition active:scale-95 order-2">
+          Clear All
+        </button>
+
+        <button id="submitReportBtn" 
+                class="px-10 py-4 bg-green-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-green-700 transition active:scale-95 order-1 col-span-2 sm:col-span-1">
+          Submit Report
+        </button>
       </div>
     </div>
-    <div id="submit-message" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded text-sm"></div>
+
+    <!-- Success Message (optional) -->
+    <div id="submit-message" class="hidden mt-6 p-5 bg-green-50 border border-green-200 rounded-2xl text-center">
+      <p class="text-green-800 font-semibold">Report submitted successfully!</p>
+    </div>
   </div>
+</div>
 
 </div>
 
@@ -121,65 +146,95 @@
     currentStep = n;
     document.getElementById(`step${currentStep}`).classList.remove('hidden');
 
-    // Update progress
     document.getElementById('progress-bar').style.width = `${(n / totalSteps) * 100}%`;
-    document.querySelectorAll('#step1-label, #step2-label, #step3-label').forEach(el => el.classList.remove('font-semibold'));
-    document.getElementById(`step${n}-label`).classList.add('font-semibold');
+    document.querySelectorAll('[id^="step"][id$="-label"]').forEach(el => el.classList.remove('text-green-600', 'font-bold'));
+    document.getElementById(`step${n}-label`).classList.add('text-green-600', 'font-bold');
   }
 
-  function renderSections() {
-    const container = document.getElementById('step2');
-    container.innerHTML = ''; // clear previous
+  // MAIN RENDER FUNCTION - MOBILE FIRST & BEAUTIFUL
+function renderSections() {
+  const container = document.getElementById('step2');
+  container.innerHTML = '';
 
-    sections.forEach((sec, i) => {
-      const div = document.createElement('div');
-      div.className = "bg-white/95 p-6 rounded-2xl shadow-xl border border-[#E8E2D9]";
+  sections.forEach((sec, i) => {
+    const card = document.createElement('div');
+    card.className = "bg-white rounded-2xl shadow-sm border border-gray-100 mb-3 overflow-hidden";
 
-      div.innerHTML = `
-        <div class="flex justify-between items-center mb-4">
-          <div class="flex items-center gap-3">
-            <i data-lucide="${sec.icon}" class="w-6 h-6 text-gray-700"></i>
-            <h3 class="font-semibold text-black">${sec.title}</h3>
-          </div>
-          <div class="flex items-center gap-3">
-            <button onclick="setSectionStatus(${i}, 'ok')" class="px-5 py-2 rounded-lg text-sm transition ${sec.status === 'ok' ? 'bg-green-600 text-white' : 'bg-gray-200'}">OK</button>
-            <button onclick="setSectionStatus(${i}, 'not_ok')" class="px-5 py-2 rounded-lg text-sm transition ${sec.status === 'not_ok' ? 'bg-red-600 text-white' : 'bg-gray-200'}">Not OK</button>
-            <button onclick="toggleExpand(${i})" class="p-2 border rounded-lg"><i data-lucide="${sec.expanded ? 'chevron-up' : 'chevron-down'}"></i></button>
-          </div>
+    card.innerHTML = `
+      <div class="p-4 flex items-center justify-between">
+        <!-- Left: Icon + Title (smaller on mobile) -->
+        <div class="flex items-center gap-3">
+          <i data-lucide="${sec.icon}" class="w-6 h-6 text-gray-700 flex-shrink-0"></i>
+          <h3 class="text-base font-semibold text-gray-900 leading-tight">${sec.title}</h3>
         </div>
 
-        ${sec.status === 'not_ok' ? `
-          <textarea placeholder="Short remark" class="w-full p-3 border rounded-lg mt-3" oninput="setRemark(${i}, this.value)">${sec.remark}</textarea>
-        ` : ''}
+        <!-- Right: OK / Not OK + Arrow (compact & finger-friendly) -->
+        <div class="flex items-center gap-1.5">
+          <button onclick="setSectionStatus(${i}, 'ok')"
+                  class="px-4 py-2.5 text-xs font-medium rounded-lg transition-all active:scale-95 whitespace-nowrap
+                         ${sec.status === 'ok' ? 'bg-green-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700'}">
+            OK
+          </button>
+          <button onclick="setSectionStatus(${i}, 'not_ok')"
+                  class="px-4 py-2.5 text-xs font-medium rounded-lg transition-all active:scale-95 whitespace-nowrap
+                         ${sec.status === 'not_ok' ? 'bg-red-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700'}">
+            Not OK
+          </button>
+          <button onclick="toggleExpand(${i})"
+                  class="p-2 rounded-lg bg-gray-100 active:bg-gray-200">
+            <i data-lucide="${sec.expanded ? 'chevron-up' : 'chevron-down'}" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
 
-        ${sec.expanded ? `
-          <div class="mt-4 space-y-3">
-            ${sec.details.map((d, di) => `
-              <div class="flex justify-between items-center text-sm">
-                <span class="text-gray-700">${d}</span>
-                <div class="flex gap-2">
-                  <button onclick="setDetail(${i},${di},true)" class="px-3 py-1 text-xs rounded ${sec.details[di]?.ok === true ? 'bg-green-600 text-white' : 'bg-gray-200'}">OK</button>
-                  <button onclick="setDetail(${i},${di},false)" class="px-3 py-1 text-xs rounded ${sec.details[di]?.ok === false ? 'bg-red-600 text-white' : 'bg-gray-200'}">Not OK</button>
+      <!-- Remark when Not OK -->
+      ${sec.status === 'not_ok' ? `
+        <div class="px-4 pb-3">
+          <textarea placeholder="Remark..." rows="2"
+                    class="w-full p-2.5 text-xs border border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-red-400"
+                    oninput="setRemark(${i}, this.value)">${sec.remark}</textarea>
+        </div>
+      ` : ''}
+
+      <!-- Expanded Details -->
+      ${sec.expanded ? `
+        <div class="px-4 pb-4 border-t border-gray-100 pt-3 space-y-2.5 text-xs">
+          ${sec.details.map((d, di) => {
+            const text = typeof d === 'object' ? d.text : d;
+            const ok = typeof d === 'object' ? d.ok : null;
+            return `
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">${text}</span>
+                <div class="flex gap-1.5">
+                  <button onclick="setDetail(${i},${di},true)"
+                          class="px-2.5 py-1.5 rounded text-xs ${ok === true ? 'bg-green-600 text-white' : 'bg-gray-100'}">OK</button>
+                  <button onclick="setDetail(${i},${di},false)"
+                          class="px-2.5 py-1.5 rounded text-xs ${ok === false ? 'bg-red-600 text-white' : 'bg-gray-100'}">Not OK</button>
                 </div>
               </div>
-            `).join('')}
-          </div>
-        ` : ''}
-      `;
-      container.appendChild(div);
-    });
-
-    lucide.createIcons();
-    // Re-add navigation buttons
-    const nav = document.createElement('div');
-    nav.className = "flex justify-between mt-8";
-    nav.innerHTML = `
-      <button onclick="goToStep(1)" class="px-6 py-3 bg-gray-300 rounded-lg">Back</button>
-      <button onclick="goToStep(3)" class="px-8 py-3 bg-green-600 text-white rounded-lg">Next</button>
+            `;
+          }).join('')}
+        </div>
+      ` : ''}
     `;
-    container.appendChild(nav);
-  }
 
+    container.appendChild(card);
+  });
+
+  lucide.createIcons();
+
+  // Fixed Bottom Button (perfect for narrow screens)
+  const nav = document.createElement('div');
+  nav.className = "fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-xl";
+  nav.innerHTML = `
+    <button onclick="goToStep(3)" 
+            class="w-full bg-green-600 text-white font-semibold text-lg py-4 rounded-xl active:scale-95 transition shadow-lg flex items-center justify-center gap-2">
+      Next →
+    </button>
+  `;
+  container.appendChild(nav);
+}
+  // Rest of your functions remain the same
   function setSectionStatus(i, status) {
     sections[i].status = status;
     if (status === 'ok') sections[i].remark = '';
@@ -196,11 +251,15 @@
   }
 
   function setDetail(secIdx, detIdx, val) {
-    if (!sections[secIdx].details[detIdx]) sections[secIdx].details[detIdx] = {};
-    sections[secIdx].details[detIdx].ok = val;
+    if (typeof sections[secIdx].details[detIdx] === 'string') {
+      sections[secIdx].details[detIdx] = { text: sections[secIdx].details[detIdx], ok: val };
+    } else {
+      sections[secIdx].details[detIdx].ok = val;
+    }
     renderSections();
   }
 
+  // Photos functions stay the same...
   function handlePhotos(files) {
     Array.from(files).forEach(file => {
       const reader = new FileReader();
@@ -212,52 +271,45 @@
     });
   }
 
-  function renderPhotos() {
-    const grid = document.getElementById('photo-grid');
-    const noPhotos = document.getElementById('no-photos');
-    grid.innerHTML = '';
+function renderPhotos() {
+  const grid = document.getElementById('photo-grid');
+  const noPhotos = document.getElementById('no-photos');
+  grid.innerHTML = '';
 
-    if (photos.length === 0) {
-      noPhotos.classList.remove('hidden');
-      return;
-    }
-
-    noPhotos.classList.add('hidden');
-    photos.forEach((p, i) => {
-      const div = document.createElement('div');
-      div.className = "relative border rounded-lg overflow-hidden shadow";
-      div.innerHTML = `
-        <img src="${p.url}" class="w-full h-40 object-cover"/>
-        <button onclick="removePhoto(${i})" class="absolute top-2 right-2 bg-white/80 rounded-full p-1 text-xs hover:bg-white">✕</button>
-        <div class="p-2 text-xs truncate bg-white">${p.name}</div>
-      `;
-      grid.appendChild(div);
-    });
+  if (photos.length === 0) {
+    noPhotos.classList.remove('hidden');
+    return;
   }
 
-  function removePhoto(i) {
-    photos.splice(i, 1);
-    renderPhotos();
-  }
+  noPhotos.classList.add('hidden');
 
-  function clearPhotos() {
-    photos.length = 0;
-    renderPhotos();
-  }
+  photos.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = "relative group rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200";
 
-  // async function submitReport() {
-  //   const btnbutton = document.getElementById('submit-btn');
-  //   button.disabled = true;
-  //   button.textContent = "Submitting...";
+    div.innerHTML = `
+      <img src="${p.url}" class="w-full h-48 object-cover"/>
+      
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <button onclick="removePhoto(${i})" 
+                class="bg-white rounded-full p-3 shadow-xl active:scale-90 transition">
+          <i data-lucide="trash-2" class="w-6 h-6 text-red-600"></i>
+        </button>
+      </div>
 
-  //   // Simulate API call
-  //   await new Promise(r => setTimeout(r, 1200));
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+        <p class="text-white text-xs truncate">${p.name}</p>
+      </div>
+    `;
 
-  //   document.getElementById('submit-message').classList.remove('hidden');
-  //   document.getElementById('submit-message').textContent = "Report submitted successfully. Reviewer will be notified.";
-  //   button.textContent = "Submit Report";
-  //   button.disabled = false;
-  // }
+    grid.appendChild(div);
+  });
+
+  lucide.createIcons();
+}
+
+  function removePhoto(i) { photos.splice(i, 1); renderPhotos(); }
+  function clearPhotos() { photos.length = 0; renderPhotos(); }
 
   // Initial render
   renderSections();
