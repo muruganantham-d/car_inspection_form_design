@@ -389,5 +389,35 @@
       setMain(0);
     })();
   </script>
+  <script>
+  // --- MOBILE MENU LOGIC (added without modifying previous script) ---
+
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("inspectproCloseMenu");
+  const overlay = document.getElementById("inspectproMobileMenuOverlay");
+  const backdrop = document.getElementById("inspectproBackdrop");
+  const panel = document.getElementById("inspectproMobilePanel");
+
+  if (mobileBtn && overlay && panel) {
+
+    // OPEN MENU
+    mobileBtn.addEventListener("click", () => {
+      overlay.classList.remove("hidden");
+      panel.classList.remove("translate-x-full");
+      document.body.style.overflow = "hidden"; 
+    });
+
+    // CLOSE MENU
+    function closeMenu() {
+      overlay.classList.add("hidden");
+      panel.classList.add("translate-x-full");
+      document.body.style.overflow = ""; 
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (backdrop) backdrop.addEventListener("click", closeMenu);
+  }
+</script>
+
 </body>
 </html>

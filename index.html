@@ -15,7 +15,7 @@
     .hero-title { text-shadow: 0 6px 30px rgba(3, 7, 18, 0.45); }
   </style>
 </head>
-<body class="antialiased bg-gray-50 text-gray-800">
+<body class="antialiased bg-blue-50 (#eff6ff) text-gray-800">
 
   <!-- NAVBAR - FULLY FIXED -->
   <header class="w-full border-b border-gray-100 bg-white/70 backdrop-blur sticky top-0 z-50">
@@ -32,9 +32,9 @@
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-        <a href="#" class="hover:text-blue-600 transition">Home</a>
-        <a href="#" class="hover:text-blue-600 transition">Inspection Form</a>
-        <a href="#" class="hover:text-blue-600 transition">All Reports (Admin)</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+        <a href="inspection-form.html" class="hover:text-blue-600 transition">Inspection Form</a>
+        <a href="all-report.html" class="hover:text-blue-600 transition">All Reports (Admin)</a>
         <button class="rounded-full w-9 h-9 bg-blue-50 flex items-center justify-center hover:bg-blue-100 transition">
           <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -57,7 +57,9 @@
   <div id="inspectproBackdrop" class="absolute inset-0 !bg-black/60 backdrop-blur-sm"></div>
 
   <!-- WHITE MENU PANEL – SMALLER WIDTH -->
-  <div id="inspectproMobilePanel" class="absolute inset-y-0 right-0 w-full max-w-xs !bg-white shadow-2xl flex flex-col">
+<div id="inspectproMobilePanel"
+     class="absolute inset-y-0 right-0 w-full max-w-xs bg-white shadow-2xl flex flex-col 
+            transform translate-x-full transition-transform duration-300">
     
     <!-- HEADER -->
     <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200 bg-white">
@@ -72,21 +74,21 @@
     <!-- NAV -->
     <nav class="flex-1 px-4 py-6 space-y-5 text-base font-medium text-gray-800 bg-white">
 
-      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+      <a href="index.html" class="flex items-center gap-3 hover:text-blue-600 transition">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/>
         </svg>
         Home
       </a>
 
-      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+      <a href="inspection-form.html" class="flex items-center gap-3 hover:text-blue-600 transition">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
         </svg>
         Inspection Form
       </a>
 
-      <a href="#" class="flex items-center gap-3 hover:text-blue-600 transition">
+      <a href="all-report.html" class="flex items-center gap-3 hover:text-blue-600 transition">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
         </svg>
@@ -233,7 +235,44 @@ window.location.href = "inspection-form.html";
 
   // Start in Sign In mode
   goToSignIn();
+
+
+
 </script>
+
+<script>
+  // --- MOBILE MENU LOGIC (added without modifying previous script) ---
+
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("inspectproCloseMenu");
+  const overlay = document.getElementById("inspectproMobileMenuOverlay");
+  const backdrop = document.getElementById("inspectproBackdrop");
+  const panel = document.getElementById("inspectproMobilePanel");
+
+  if (mobileBtn && overlay && panel) {
+
+    // OPEN MENU
+    mobileBtn.addEventListener("click", () => {
+      overlay.classList.remove("hidden");
+      panel.classList.remove("translate-x-full");
+      document.body.style.overflow = "hidden"; 
+    });
+
+    // CLOSE MENU
+    function closeMenu() {
+      overlay.classList.add("hidden");
+      panel.classList.add("translate-x-full");
+      document.body.style.overflow = ""; 
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (backdrop) backdrop.addEventListener("click", closeMenu);
+  }
+</script>
+
+
+
+
 
 </body>
 </html>
