@@ -17,8 +17,102 @@
     img.object-cover-fallback { object-fit: cover; }
   </style>
 </head>
-<body class="bg-gradient-to-r from-[#f7fbff] to-[#f3f7ff] min-h-screen p-6">
+<body class="antialiased bg-blue-50 (#eff6ff) text-gray-800">
 
+    <!-- NAVBAR - FULLY FIXED -->
+  <header class="w-full border-b border-gray-100 bg-white/70 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <svg class="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 11l1.4-3.5A2 2 0 0 1 6.2 6h11.6a2 2 0 0 1 1.8 1.5L21 11"></path>
+          <circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+        </svg>
+        <div class="font-bold text-xl">InspectPro</div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+        <a href="inspection-form.html" class="hover:text-blue-600 transition">Inspection Form</a>
+        <a href="all-report.html" class="hover:text-blue-600 transition">All Reports (Admin)</a>
+        <button class="rounded-full w-9 h-9 bg-blue-50 flex items-center justify-center hover:bg-blue-100 transition">
+          <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+<!-- MOBILE MENU – FIXED -->
+<div id="inspectproMobileMenuOverlay" class="fixed inset-0 z-[9999] hidden">
+  <!-- BACKDROP -->
+  <div id="inspectproBackdrop" class="absolute inset-0 !bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- WHITE MENU PANEL – SMALLER WIDTH -->
+<div id="inspectproMobilePanel"
+     class="absolute inset-y-0 right-0 w-full max-w-xs bg-white shadow-2xl flex flex-col 
+            transform translate-x-full transition-transform duration-300">
+    
+    <!-- HEADER -->
+    <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200 bg-white">
+      <h3 class="text-lg font-bold text-gray-900">Menu</h3>
+      <button id="inspectproCloseMenu" class="p-2 rounded-lg hover:bg-gray-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- NAV -->
+    <nav class="flex-1 px-4 py-6 space-y-5 text-base font-medium text-gray-800 bg-white">
+
+      <a href="index.html" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/>
+        </svg>
+        Home
+      </a>
+
+      <a href="inspection-form.html" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Inspection Form
+      </a>
+
+      <a href="all-report.html" class="flex items-center gap-3 hover:text-blue-600 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+        </svg>
+        All Reports (Admin)
+      </a>
+
+      <div class="pt-6 border-t border-gray-200">
+        <button class="w-full py-3 text-base bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition shadow-md">
+          Logout
+        </button>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+
+  
+
+  </header>
+
+  <div class="bg-gradient-to-r from-[#f7fbff] to-[#f3f7ff] min-h-screen p-6">
   <main class="max-w-6xl mx-auto">
 
 <!-- TOP HEADER – FULLY RESPONSIVE FOR MOBILE, TABLET & DESKTOP -->
@@ -440,6 +534,6 @@
     if (backdrop) backdrop.addEventListener("click", closeMenu);
   }
 </script>
-
+</div>
 </body>
 </html>
