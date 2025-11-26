@@ -208,37 +208,88 @@
   </footer>
 
 <script>
-  // Only care about the two tabs and the submit button
+  // --- AUTH TAB + SUBMIT FIX (replace your original auth script with this) ---
   const tabSignIn = document.getElementById('tabSignIn');
   const tabSignUp = document.getElementById('tabSignUp');
-  const nameGroup = document.getElementById('nameGroup');
-  const submitBtn = document.getElementById('submitBtn');
+  const nameGroup   = document.getElementById('nameGroup');
+  const submitBtn   = document.getElementById('submitBtn');
+  const formTitle   = document.getElementById('formTitle');
+  const authForm    = document.getElementById('authForm');
 
-  // Switch to Sign In mode
-  function goToSignIn() {
-    tabSignIn.classList.add('bg-white', 'shadow-sm');
-    tabSignUp.classList.remove('bg-white', 'shadow-sm');
-    nameGroup.style.display = 'none';
-    submitBtn.textContent = 'Sign In';
+  // Utility: set active tab visuals
+  function setActiveTab(isSignIn) {
+    if (isSignIn) {
+      tabSignIn.classList.add('bg-white','shadow-sm');
+      tabSignUp.classList.remove('bg-white','shadow-sm');
+      tabSignIn.setAttribute('aria-selected','true');
+      tabSignUp.setAttribute('aria-selected','false');
+      nameGroup.style.display = 'none';
+      formTitle.textContent = 'Sign in to your account';
+      submitBtn.textContent = 'Sign In';
+      submitBtn.style.background = 'linear-gradient(90deg, #0A84FF, #3AB0FF)';
+    } else {
+      tabSignUp.classList.add('bg-white','shadow-sm');
+      tabSignIn.classList.remove('bg-white','shadow-sm');
+      tabSignUp.setAttribute('aria-selected','true');
+      tabSignIn.setAttribute('aria-selected','false');
+      nameGroup.style.display = ''; // restore default (block)
+      formTitle.textContent = 'Create an account';
+      submitBtn.textContent = 'Create Account';
+      submitBtn.style.background = 'linear-gradient(90deg, #0A84FF, #3AB0FF)';
+    }
   }
 
-  tabSignIn.onclick = () => goToSignIn();
-  tabSignUp.onclick = () => { /* you can leave Sign Up as is */ };
+  // Handlers
+  function goToSignIn(e) {
+    e?.preventDefault?.();
+    setActiveTab(true);
+  }
+  function goToSignUp(e) {
+    e?.preventDefault?.();
+    setActiveTab(false);
+  }
 
-  // Instant redirect on Sign In click — no validation, no nothing
-  submitBtn.onclick = (e) => {
-    if (nameGroup.style.display === 'none') {  // means we are in Sign In mode
-      e.preventDefault();
-window.location.href = "inspection-form.html";
-    }
-  };
+  // Attach listeners (use addEventListener to avoid overwriting)
+  tabSignIn.addEventListener('click', goToSignIn);
+  tabSignUp.addEventListener('click', goToSignUp);
 
   // Start in Sign In mode
-  goToSignIn();
+  setActiveTab(true);
 
+  // Form submit behaviour:
+  // - If Sign In: prevent default submit and redirect (keeps your "instant redirect" intent)
+  // - If Sign Up: allow normal submit (you can handle real sign-up server action later)
+  authForm.addEventListener('submit', (e) => {
+    const isSignIn = (nameGroup.style.display === 'none' || nameGroup.style.display === '');
+    // Above line checks visible state; using '' can happen if CSS default applies.
+    // We'll double-check via the active tab attribute to be robust:
+    const signInSelected = tabSignIn.getAttribute('aria-selected') === 'true';
 
+    if (signInSelected) {
+      // Sign In: emulate instant redirect (no validation)
+      e.preventDefault();
+      // If you want to perform client-side validation, add it here
+      window.location.href = "inspection-form.html";
+    } else {
+      // Sign Up: allow normal submit (remove e.preventDefault) so form can post or be handled
+      // If you want to handle sign-up via JS, call e.preventDefault() and process.
+      // For now we'll let it submit (you can change to AJAX later)
+    }
+  });
 
+  // (Optional) Make tab keyboard accessible (Enter/Space)
+  [tabSignIn, tabSignUp].forEach(tab => {
+    tab.setAttribute('role','tab');
+    tab.tabIndex = 0;
+    tab.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault();
+        tab.click();
+      }
+    });
+  });
 </script>
+
 
 <script>
   // --- MOBILE MENU LOGIC (added without modifying previous script) ---
